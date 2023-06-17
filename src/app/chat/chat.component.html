@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="chat-window">
+        <div #window class="messages">
+            <div *ngFor="let msg of messages" [class]="msg.type">
+                {{msg.content}}
+            </div>
+            <div class="dots" [hidden]="!messageSent">
+                <span class="dot" style="--delay : 1"> <i class="pi pi-circle-fill"></i> </span>
+                <span class="dot" style="--delay : 2"> <i class="pi pi-circle-fill"></i> </span>
+                <span class="dot" style="--delay : 3"> <i class="pi pi-circle-fill"></i> </span>
+            </div>
+
+        </div>
+
+        <div class="input-text">
+            <form [formGroup]="userInputForm" (ngSubmit)="onSent()">
+                <div class="p-inputgroup">
+                    <input type="text" pInputText placeholder="type here..." formControlName="inputText"/>
+                    <button type="submit" pButton pRipple icon="pi pi-check" styleClass="p-button-success" [disabled]="userInputForm.invalid"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <p-button label="Exit conversation" styleClass="p-button-rounded p-button-danger" routerLink="/home"></p-button>
+</div>

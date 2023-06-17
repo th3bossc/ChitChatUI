@@ -1,0 +1,33 @@
+.title {
+    display: flex;
+    gap : 1px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .main-title {
+        font-weight: 800;
+        font-style: italic;
+        font-size: 48px;
+        margin-top : 50px;
+    }
+
+    .sub-title {
+        &::after {
+            content: "";
+            padding : 1px 3px;
+            margin : 5px;
+            background-color: var(--primary-color);   
+        }
+        transition : font-size 100ms ease-in-out;
+    }
+}
+main {
+    position : relative;
+}
+
+@media (max-width : 370px) {
+    .sub-title {
+        font-size : small;
+    }
+}

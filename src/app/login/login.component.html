@@ -1,0 +1,18 @@
+<div class="container animate__animated animate__slideInDown">
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="p-inputgroup" style="width : 50%">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-at"></i>
+            </span>
+            <input pInputText placeholder="Email" formControlName="email"/>
+        </div>
+        <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="password"></p-password>
+
+        <button pButton pRipple type="submit" class="p-button-text p-button-rounded"> Login </button>
+    </form>
+    <hr>
+    <div class="register-route text-center">
+        Don't have an account? <a routerLink="/home/register"> Create Account </a>
+    </div>
+</div>
