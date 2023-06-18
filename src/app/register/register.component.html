@@ -20,8 +20,8 @@
             </div>
         </div>
         <div class="passwords">
-            <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="Password"></p-password>
-            <p-password formControlName="confirm_password" [feedback]="false" [toggleMask]="true" placeholder="Confirm Password"></p-password>
+            <p-password type="password" class="w-full" [feedback]="false" placeholder="Password" styleClass="p-input-icon-right" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [toggleMask]="true" formControlName="password"></p-password>
+            <p-password type="password" class="w-full" [feedback]="false" placeholder="Confirm Password" styleClass="p-input-icon-right" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [toggleMask]="true" formControlName="confirm_password"></p-password>
         </div>
 
         <button pButton pRipple type="submit" class="p-button-text p-button-rounded" [disabled]="registerForm.invalid || !registerForm.dirty"> Create Account </button>

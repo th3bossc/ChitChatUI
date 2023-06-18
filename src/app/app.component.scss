@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    flex-wrap: nowrap;
+    text-align: center;
     .main-title {
         font-weight: 800;
         font-style: italic;
@@ -26,7 +27,7 @@ main {
     position : relative;
 }
 
-@media (max-width : 370px) {
+@media (max-width : 420) {
     .sub-title {
         font-size : small;
     }

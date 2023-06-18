@@ -1,14 +1,13 @@
 <div class="container animate__animated animate__slideInDown">
     <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <div class="p-inputgroup" style="width : 50%">
+        <div class="p-inputgroup" style="width : 100%">
             <span class="p-inputgroup-addon">
                 <i class="pi pi-at"></i>
             </span>
-            <input pInputText placeholder="Email" formControlName="email"/>
+            <input pInputText placeholder="Email" formControlName="email" class="input"/>
         </div>
-        <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="password"></p-password>
-
+        <p-password id="password1" type="password" class="w-full" [feedback]="false" placeholder="Password" styleClass="p-password p-component p-inputwrapper p-input-icon-right" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [toggleMask]="true" formControlName="password"></p-password>
         <button pButton pRipple type="submit" [loading]="buttonLoading"> Login </button>
     </form>
     <hr>

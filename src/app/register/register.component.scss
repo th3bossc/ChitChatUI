@@ -14,26 +14,20 @@
         display : flex;
         align-items: center;
         justify-content: center;
-        gap : 30px;
+        gap : 10px;
         flex-direction: row;
         flex-wrap: wrap;
+        .p-inputgroup {
+            width: 100%;
+        }
     }
 
-    .p-inputgroup {
-        width: 80%;
-    }
 
     .passwords {
         display: flex;
         flex-direction : row;
-        align-items: center;
-        justify-content: center;
-        flex-wrap : wrap;
-        gap : 30px;
-
-        .p-password {
-            width : 100%;
-        }
+        gap : 10px;
+        flex-wrap : nowrap;
     }
 }
 
