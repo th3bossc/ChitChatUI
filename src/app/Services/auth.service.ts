@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  // apiUrl : string = 'http://127.0.0.1:5000/'
   apiUrl : string = 'https://Th3BossC-ChitChat.hf.space/'
+  // apiUrl : string = 'http://127.0.0.1:5000/'
   constructor(private http : HttpClient) { }
 
   login(userData : AuthData) : Observable<AuthStatus> {

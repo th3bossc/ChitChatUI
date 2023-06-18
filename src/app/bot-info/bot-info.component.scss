@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap : 10px;
+
+    
+    .examples {
+        display : flex;
+        flex-direction: column;
+        justify-content : center;
+        gap : 10px;
+    }
+    
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    width : 100%;
+    justify-content: center;
+    gap : 20px;
+    // .model-link {
+    //     align-self: flex-start;
+    // }
+
+    // .chat {
+    //     align-self: flex-end;
+    // }
+
+}

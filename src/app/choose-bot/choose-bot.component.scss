@@ -1,0 +1,19 @@
+.container {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap : 10px;
+    margin: 150px 0px;
+
+}
+
+.log-out {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    hr {
+        width : 100px;
+    }
+}

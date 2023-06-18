@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   loginStatus : AuthStatus;
   messages : Message[];
+  buttonLoading : boolean;
   constructor(private router : Router, private authService : AuthService, private activatedRouter : ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -28,15 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    this.buttonLoading = true;
     this.authService.login({email : this.loginForm.value['email'], password : this.loginForm.value['password']}).subscribe((data) => {
       this.loginStatus = data;
       console.log(data);
-      if (this.loginStatus.user_id !== null) {
-        this.router.navigate(['chat', this.loginStatus.user_id.toString()])
-      }
-      else {
+      this.buttonLoading = false;
+      if (this.loginStatus.user_id !== null)
+        this.router.navigate(['info'], {queryParams : {user_id : this.loginStatus['user_id']}});
+      else
         this.messages = [{ severity: 'error', summary: 'Uh Oh!', detail: this.loginStatus.status }];
-      }
+      
     })
     this.loginForm.reset(); 
   }

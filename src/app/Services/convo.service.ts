@@ -12,6 +12,11 @@ export class ConvoService {
   constructor(private http : HttpClient) { }
 
   getReply(userInput : ChatData, user_id : string) : Observable<ChatReply> {
-    return this.http.post<ChatReply>(this.apiUrl + user_id, userInput);
+    return this.http.post<ChatReply>(this.apiUrl + 'dumbbot/' + user_id, userInput);
   }
+
+  getComplexQuery(userInput : ChatData) : Observable<ChatReply> {
+    return this.http.post<ChatReply>(this.apiUrl + 'smartbot/', userInput);
+  }
+
 }

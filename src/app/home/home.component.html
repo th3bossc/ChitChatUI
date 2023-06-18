@@ -1,6 +1,6 @@
 <div class="container">
-    <p-button styleClass="p-button-primary" label="Existing User" (onClick)="onLogin()"></p-button>
-    <p-button styleClass="p-button-secondary" label="New User" (onClick)="onRegister()"></p-button>
+    <p-button styleClass="p-button-help" label="Existing User" (onClick)="onLogin()"></p-button>
+    <p-button styleClass="p-button-danger" label="New User" (onClick)="onRegister()"></p-button>
     <p-dialog header="Sign In / Log In" [(visible)]="visible" [draggable]="false" [style]="{width: '80vw', height : '60vh'}">
         <router-outlet></router-outlet>
     </p-dialog>

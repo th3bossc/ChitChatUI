@@ -1,0 +1,69 @@
+<div class="container" *ngIf="botType === 'dumb'">
+    <p-panel header="Quick Info">
+        A GPT bot made by fine-tuning and training microsoft's dialoGPT-medium model on human conversations
+    </p-panel>
+    <p-panel header="What it can do">
+        It can casually converse with near human-like responses and has short-term memory to give a feel that you're conversing with an actual person.
+        Do note that the responses need not be factually accurate most of the time.
+    </p-panel>
+    <p-panel header="What it's made of">
+        Under the hood, the model is running a GPT-2 architecture, which is a decoder-only model based on transformers. The model has been fine-tuned using various training datasets from kaggle and reddit threads that makes it profficient in holding up causal conversations and long chains of continous to and fro chatting.
+    </p-panel>
+    
+    <div class="links">
+        <a pButton pRipple class="model-link p-button-raised p-button-text p-button-help" href="https://huggingface.co/Th3BossC/DialoGPT-medium-AICLUB_NITC" target="_blank"> Model Source Code </a>
+        <button pButton pRipple class="chat p-button-raised p-button-text p-button-success" (click)="goToChat()"> Chat With the Bot </button> 
+    </div>
+</div>
+
+<div class="container" *ngIf="botType === 'smart'">
+    <p-panel header="Quick Info">
+        a T5 bot made by fine-tuning google's T5 architecture
+    </p-panel>
+    <p-panel header="What it can do">
+        It is slightly worse at providing human-like chat responses but it has been pre-trained by google on around 500 different datasets and around 2000 different tasks including translation, summarization, question answering, reasoning, multiple choice question answering and various other cases.
+        Do note, due to the severe complexity of such a multi-task model and the low hardware capability, a slightly smaller version of the model is used and hence the responses may not be as perfect as it should be.
+        The model does a really good job at concise queries. 
+        <hr>
+        Some examples of queries are given below for reference:- 
+        <div class="examples m-5">
+            <p-panel header="Summarization">
+                <p class="m-0">
+                    Summarize  &lt;text content&gt;
+                </p>
+            </p-panel>
+            <p-panel header="Translation">
+                <p class="m-0">
+                    Translate from &lt;from_languge&gt; to &lt;to_language&gt; : &lt;text content&gt;
+                </p>
+            </p-panel>
+            <p-panel header="Question answering">
+                <p class="m-0">
+                    Answer the following question :  &lt;question&gt;
+                </p>
+                <p class="m-0">
+                    Answer the following yes/no question : &lt;question&gt;
+                </p>
+            </p-panel>
+            <p-panel header="Reasoning">
+                <p class="m-0">
+                    &lt;question&gt; Give rationale before answering
+                </p>
+            </p-panel>
+            <p-panel header="Contextual questioning">
+                <p class="m-0">
+                    Answer the question  &lt;question&gt; given the context &lt;context&gt;
+                </p>
+            </p-panel>
+        </div>
+        ... and many other question categories (like fill-in-the missing word, sentiment-identification, Named-entity-recognition etc.)
+    </p-panel>
+    <p-panel header="What it's made of">
+        Under the hood, the model is running a T5 (Text-to-Text Transfer Transformer) which is an encoder-decoder transformer model created by google. the Flan-T5 is an extensively fine-tuned model which has surpassed the T5 model on each and every task tried, and even more.
+    </p-panel>
+    
+    <div class="links">
+        <a pButton pRipple class="model-link p-button-raised p-button-text p-button-help" href="https://huggingface.co/google/flan-t5-large" target="_blank"> Model Source Code </a>
+        <button pButton pRipple class="chat p-button-raised p-button-text p-button-success" (click)="goToChat()"> Chat With the Bot </button> 
+    </div>
+</div>

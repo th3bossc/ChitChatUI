@@ -9,7 +9,7 @@
         </div>
         <p-password formControlName="password" [feedback]="false" [toggleMask]="true" placeholder="password"></p-password>
 
-        <button pButton pRipple type="submit" class="p-button-text p-button-rounded"> Login </button>
+        <button pButton pRipple type="submit" [loading]="buttonLoading"> Login </button>
     </form>
     <hr>
     <div class="register-route text-center">
