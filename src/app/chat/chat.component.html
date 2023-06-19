@@ -1,6 +1,12 @@
 <div class="container">
-    <div class="chat-window">
+    <div [class]="'chat-window ' + botType">
         <div #window class="messages">
+            <div class="user">
+                hello
+            </div>
+            <div class="bot">
+                hello   
+            </div>
             <div *ngFor="let msg of messages" [class]="msg.type">
                 {{msg.content}}
             </div>

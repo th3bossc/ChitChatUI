@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     this.buttonLoading = true;
     this.authService.login({email : this.loginForm.value['email'], password : this.loginForm.value['password']}).subscribe((data) => {
       this.loginStatus = data;
-      console.log(data);
       this.buttonLoading = false;
       if (this.loginStatus.user_id !== null)
         this.router.navigate(['info'], {queryParams : {user_id : this.loginStatus['user_id']}});

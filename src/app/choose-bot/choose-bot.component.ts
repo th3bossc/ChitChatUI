@@ -23,17 +23,12 @@ export class ChooseBotComponent implements OnInit, OnDestroy {
       this.ref.close();
   }
 
-
-  dumbBot() {
-    console.log('i am dumb');
-  }
-
   dumbBotInfo() {
     this.ref = this.dialogService.open(
       BotInfoComponent,
       {
         data : {
-          bot : 'dumb',
+          bot : 'gpt',
           user_id : this.user_id
         },
         header : 'Conversational Bot (GPT-2)',
@@ -41,17 +36,12 @@ export class ChooseBotComponent implements OnInit, OnDestroy {
     );
   }
 
-
-  smartBot() {
-    console.log('i am smart');
-  }
-
   smartBotInfo() {
     this.ref = this.dialogService.open(
       BotInfoComponent,
       {
         data : {
-          bot : 'smart',
+          bot : 't5',
           user_id : this.user_id
         },
         header : 'Multi-task Bot (Flan T5)'

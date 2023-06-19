@@ -6,22 +6,9 @@
     gap : 5px;
 
     .chat-window {
-        height : 550px;
-        width : 400px;
-        max-height : 98%;
-        max-width : 98%;
-        background-color: var(--surface-100);
-        // background: url(../../assets/polygon-scatter-haikei.svg);
-        background-size: cover;
-        border-radius : 5px;
-        margin : 20px;
-        padding : 20px;
-        .messages {
-            display: flex;
-            flex-direction: column;
-            height : 90%;
-            overflow: auto;
-            padding : 0px 15px;
+        &.gpt {
+            height : 550px;
+            width : 400px;
             .user, .bot {
                 border-radius: 10px;
                 max-width : 70%;
@@ -40,24 +27,71 @@
                 background-color: var(--gray-800);
                 animation : fadeInLeft 500ms, bubbleLeft 400ms;
             };
-            
+
             .dots {
-                display: flex;
-                gap : 3px;
-                padding : 5px;
                 margin : 5px 0px;
-                .dot {    
-                    color : var(--text-color);
-                    animation: jump 750ms infinite;
-                    animation-delay : calc(100ms * var(--delay));
-                    i {
-                        font-size : 0.6rem;
+                padding : 5px;
+            }
+        }
+        &.t5 {
+            height : 600px;
+            width : 1200px;
+            .user, .bot {
+                padding : 10px 200px;
+                border-radius: 5px;
+                margin : 5px 0px;
+                animation: fadeInDown 500ms, bubbleDown 400ms;
+            }
+            .user {
+                background-color: var(--gray-400);
+                color : var(--primary-color-text);
+            }
+            .bot {
+                background-color: var(--gray-800);
+            }
+            .dots {
+                margin : 5px 0px;
+                padding : 10px 200px;
+            }
+        }
+
+        &.gpt, &.t5 {
+            max-height : 98%;
+            max-width : 98%;
+            background-color: var(--surface-100);
+            // background: url(../../assets/polygon-scatter-haikei.svg);
+            background-size: cover;
+            border-radius : 5px;
+            margin : 20px;
+            padding : 20px;
+            .messages {
+                display: flex;
+                flex-direction: column;
+                height : 90%;
+                overflow: auto;
+                padding : 0px 15px;
+                
+                .dots {
+                    display: flex;
+                    gap : 3px;
+                    .dot {    
+                        color : var(--text-color);
+                        animation: jump 750ms infinite;
+                        animation-delay : calc(100ms * var(--delay));
+                        i {
+                            font-size : 0.6rem;
+                        }
                     }
                 }
+    
             }
         }
         
     };
+
+
+
+
 }
 
 @keyframes jump {
@@ -67,23 +101,7 @@
     50% {
         transform: translateY(20%);
     }
-
+    
 }
 
-@keyframes bubbleLeft {
-    0% {
-        clip-path:  polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
-    }
-    100% {
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-    }
-}
 
-@keyframes bubbleRight {
-    0% {
-        clip-path:  polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%);
-    }
-    100% {
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
-    }
-}

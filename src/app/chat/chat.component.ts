@@ -26,17 +26,21 @@ export class ChatComponent implements AfterViewChecked, OnInit {
 
   constructor(private activatedRoute : ActivatedRoute, private chatService : ConvoService, private router : Router) {}
 
-  ngAfterViewChecked(): void {
+
+  scrollDown() {
     this.pageBottom.nativeElement.scrollTop = this.pageBottom.nativeElement.scrollHeight;
+  }
+
+
+  ngAfterViewChecked(): void {
+    this.scrollDown();
   }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((param) => {
-      console.log(param);
       this.user_id = param['id'];
     });
     this.activatedRoute.queryParams.subscribe((queryParam) => {
-      console.log(queryParam);
       this.botType = queryParam['botType'];
     });
     this.userInputForm = new FormGroup({
@@ -49,7 +53,7 @@ export class ChatComponent implements AfterViewChecked, OnInit {
     this.messages.push({type : 'user', content : this.userInputForm.value['inputText']});
     this.messageSent = true;
     
-    if (this.botType === 'smart')
+    if (this.botType === 't5')
       this.chatService.getComplexQuery({user : this.userInputForm.value['inputText']}).subscribe((data) => {
         this.messages.push({type : 'bot', content : data['reply']});
         this.messageSent = false;
@@ -66,5 +70,6 @@ export class ChatComponent implements AfterViewChecked, OnInit {
   navigateBack() {
     this.router.navigate(['info'], {queryParams : {user_id : this.user_id}})
   }
+
 
 }

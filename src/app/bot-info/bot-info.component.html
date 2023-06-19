@@ -1,4 +1,4 @@
-<div class="container" *ngIf="botType === 'dumb'">
+<div class="container" *ngIf="botType === 'gpt'">
     <p-panel header="Quick Info">
         A GPT bot made by fine-tuning and training microsoft's dialoGPT-medium model on human conversations
     </p-panel>
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="container" *ngIf="botType === 'smart'">
+<div class="container" *ngIf="botType === 't5'">
     <p-panel header="Quick Info">
         a T5 bot made by fine-tuning google's T5 architecture
     </p-panel>

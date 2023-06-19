@@ -13,7 +13,6 @@ export class BotInfoComponent implements OnInit {
   botType : string;
   user_id : string;
   ngOnInit() {
-    console.log(this.dialogConfig.data);
     this.botType = this.dialogConfig.data['bot'];
     this.user_id = this.dialogConfig.data['user_id'];
   }

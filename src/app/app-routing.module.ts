@@ -14,7 +14,7 @@ const routes: Routes = [
   ], data : {animation : 'isUp'}},
   {path : 'info', component : ChooseBotComponent, data : {animation : 'isDown'}},
   {path : 'chat/:id', component : ChatComponent, data : {animation : 'isUp'}},
-  // {path : 'debug', component : ChatComponent},
+  {path : 'debug', component : ChatComponent},
   {path : '**', component : NotFoundComponent},
 ];
 

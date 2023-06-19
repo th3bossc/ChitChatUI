@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
     const words = phrase.split("");
     let step = 0;
     const timer = () => {
-      // console.log(this.subHeading);
       setTimeout(() => {
         if (step < words.length) {
           this.subHeading += words[step++];

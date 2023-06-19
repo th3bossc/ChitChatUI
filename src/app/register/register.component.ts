@@ -26,7 +26,6 @@ export class RegisterComponent implements OnInit{
 
 
   onSubmit() {
-    console.log(this.registerForm);
     if (this.registerForm.value['password'] == this.registerForm.value['confirm_password']) {
       this.authService.register({username : this.registerForm.value['username'], email : this.registerForm.value['email'], password : this.registerForm.value['password']}).subscribe((data) => {
         this.registerStatus = data;
