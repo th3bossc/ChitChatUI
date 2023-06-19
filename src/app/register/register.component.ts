@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit{
       this.authService.register({username : this.registerForm.value['username'], email : this.registerForm.value['email'], password : this.registerForm.value['password']}).subscribe((data) => {
         this.registerStatus = data;
         if (this.registerStatus['status'] == "User created successfully")
-          this.router.navigate(['home', 'login'], {queryParams : {registered : 'true'}});
+          this.router.navigate(['login'], {queryParams : {registered : 'true'}});
         else
           this.messages = [{ severity: 'error', summary: 'Uh Oh!', detail: this.registerStatus['status'] }];
       })

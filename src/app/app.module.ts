@@ -26,6 +26,7 @@ import { ChooseBotComponent } from './choose-bot/choose-bot.component';
 import { AuthService } from './Services/auth.service';
 import { ConvoService } from './Services/convo.service';
 import { AutoFocusModule } from 'primeng/autofocus';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AutoFocusModule } from 'primeng/autofocus';
     RegisterComponent,
     ChatComponent,
     ChooseBotComponent,
-    BotInfoComponent
+    BotInfoComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

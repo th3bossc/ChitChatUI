@@ -60,6 +60,6 @@ export class ChooseBotComponent implements OnInit, OnDestroy {
   }
 
   logout() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 }

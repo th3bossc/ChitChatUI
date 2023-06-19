@@ -1,7 +1,7 @@
 <div class="container animate__animated animate__slideInUp">
     <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
     <div class="text-center login-route">
-        already have an account? <a routerLink="/home/login"> Sign In</a>
+        already have an account? <a routerLink="/login"> Sign In</a>
     </div>
     <hr>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form ng-invalid ng-dirty">  

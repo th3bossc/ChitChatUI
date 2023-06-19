@@ -11,11 +11,11 @@ export class HomeComponent {
   visible = false;
   onLogin() {
     this.visible = true;
-    this.router.navigate(['home', 'login']);
+    this.router.navigate(['login']);
   }
   onRegister() {
     this.visible = true;
-    this.router.navigate(['home', 'register'])
+    this.router.navigate(['register'])
   }
 
 }
