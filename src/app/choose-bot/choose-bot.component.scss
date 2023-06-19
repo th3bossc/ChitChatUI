@@ -6,6 +6,12 @@
     gap : 10px;
     margin: 150px 0px;
 
+    .animate {
+        opacity : 0;
+        animation : fadeInDown forwards;
+        animation-duration : 200ms;
+        animation-delay : calc(var(--delay)*200ms);
+    }
 }
 
 .log-out {
