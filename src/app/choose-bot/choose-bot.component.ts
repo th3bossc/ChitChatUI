@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { BotInfoComponent } from '../bot-info/bot-info.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../Services/auth.service';
+import { Message } from 'primeng/api';
 @Component({
   selector: 'app-choose-bot',
   templateUrl: './choose-bot.component.html',
@@ -10,44 +12,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ChooseBotComponent implements OnInit {
   // ref : DynamicDialogRef;
   user_id : string;
-  constructor(private activatedRoute : ActivatedRoute, private router : Router) {}
+  messages : Message[]
+  constructor(private activatedRoute : ActivatedRoute, private router : Router, private authService : AuthService) {}
 
   ngOnInit(): void {
+    
     this.activatedRoute.queryParams.subscribe((queryParam) => {
       this.user_id = queryParam['user_id'];
+      this.authService.getUserName(this.user_id).subscribe(data => this.messages = [{ severity: 'success', summary: 'Hello!', detail: `Welcome back ${data['username']}` }], () => this.messages = [{severity : 'error', summary : 'Oops!', detail : 'Something went wrong with the server. Please try again!'}])
     })
   }
 
-  // ngOnDestroy(): void {
-  //   if (this.ref)
-  //     this.ref.close();
-  // }
-
   dumbBotInfo() {
-    // this.ref = this.dialogService.open(
-    //   BotInfoComponent,
-    //   {
-    //     data : {
-    //       bot : 'gpt',
-    //       user_id : this.user_id
-    //     },
-    //     header : 'Conversational Bot (GPT-2)',
-    //   }
-    // );
     this.router.navigate(['chat', this.user_id], {queryParams : {botType : 'gpt'}});
   }
 
   smartBotInfo() {
-    // this.ref = this.dialogService.open(
-    //   BotInfoComponent,
-    //   {
-    //     data : {
-    //       bot : 't5',
-    //       user_id : this.user_id
-    //     },
-    //     header : 'Multi-task Bot (Flan T5)'
-    //   }
-    // );
     this.router.navigate(['chat', this.user_id], {queryParams : {botType : 't5'}});
   }
 

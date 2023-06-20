@@ -1,9 +1,9 @@
 <div class="container animate__animated animate__slideInUp">
-    <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
     <div class="text-center login-route">
         already have an account? <a routerLink="/login"> Sign In</a>
     </div>
     <hr>
+    <p-messages [(value)]="messages" [enableService]="false" [closable]="true"></p-messages>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form ng-invalid ng-dirty">  
         <div class="name-email">
             <div class="p-inputgroup">
@@ -24,6 +24,6 @@
             <p-password type="password" class="w-full" [feedback]="false" placeholder="Confirm Password" styleClass="p-input-icon-right" [style]="{'width':'100%'}" [inputStyle]="{'width':'100%'}" [toggleMask]="true" formControlName="confirm_password"></p-password>
         </div>
 
-        <button pButton pRipple type="submit" class="p-button-text p-button-rounded" [disabled]="registerForm.invalid || !registerForm.dirty"> Create Account </button>
+        <p-button type="submit" [loading]="buttonLoading" styleClass="p-button-text p-button-rounded" [disabled]="registerForm.invalid || !registerForm.dirty" label="Create Account"></p-button>
     </form>
 </div>

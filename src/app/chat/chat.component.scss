@@ -1,27 +1,29 @@
 .container {
     display : flex;
     flex-direction: row;
-    // align-items: center;
+    align-items: center;    
     justify-content: center;
     flex-wrap : wrap;
     gap : 5px;
     .chat-window {
         height : 600px;
         width : 630px;
-        // flex-shrink: 0;
         max-height : 98%;
         max-width : 98%;
-        background-color: var(--surface-50);
-        // background: url(../../assets/polygon-scatter-haikei.svg);
+        background: url(../../assets/background.svg);
         background-size: cover;
         border-radius : 5px;
-        margin : 20px;
-        padding : 20px;
+        margin : 10px;
+        padding : 10px;
         position : relative;
+
+        display: flex;
+        flex-direction: column;
+        gap : 10%;
         .messages {
             display: flex;
             flex-direction: column;
-            height : 90%;
+            height : 80%;
             overflow: auto;
             padding : 0px 15px;
             overscroll-behavior : contain;
@@ -59,20 +61,17 @@
                 }
             }
         }
-
-        .go-down {
-            position : absolute;
-            bottom : 14%;
-            right : 5%;
-        }
     };
 
     .bot-info {
-        padding-top : 20px;
+        margin : 10px;
+        padding-top : 10px;
+        border-radius: 5px;
         width : 550px;
         height : 600px;
         max-width : 98%;
         max-height : 98%;
+        border-left : 2px var(--surface-50) solid;
     }
 }
 
@@ -104,5 +103,6 @@
     }
     
 }
+
 
 

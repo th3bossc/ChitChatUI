@@ -13,9 +13,10 @@
         display: flex;
         flex-direction : row;
         gap : 10px;
-        flex-wrap : nowrap;
+        flex-wrap : wrap;
         .p-inputgroup {
-            width: 100%;
+            // width: 100%;
+            min-width : 200px;
         }
     }
 }

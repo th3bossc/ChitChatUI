@@ -24,7 +24,7 @@
             <app-bot-info [botType]="botType"></app-bot-info>
         </p-scrollPanel>
     </div>
-    <div class="bot-info" *ngIf="screenWidth < 1399">
+    <div *ngIf="screenWidth < 1400">
         <p-button label="Model Information" styleClass="p-button-text p-button-info" (onClick)="onShow()"></p-button>
     </div>
 </div>

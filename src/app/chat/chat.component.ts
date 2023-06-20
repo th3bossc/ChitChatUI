@@ -40,7 +40,6 @@ export class ChatComponent implements AfterViewChecked, OnInit {
 
 
   ngAfterViewChecked(): void {
-    console.log(this.pageBottom.nativeElement.scrollHeight);
     this.scrollDown();
   }
 

@@ -39,7 +39,9 @@ export class LoginComponent implements OnInit {
       }
       else
         this.messages = [{ severity: 'error', summary: 'Uh Oh!', detail: this.loginStatus.status }];
-      
+    }, () => {
+      this.messages = [{ severity : 'error', summary : 'Oops!', detail : 'Something went wrong. Please try again later'}]
+        this.buttonLoading = false;
     })
     this.loginForm.reset(); 
   }
