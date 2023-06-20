@@ -25,6 +25,7 @@
             flex-direction: column;
             height : 80%;
             overflow: auto;
+            overflow-x: hidden;
             padding : 0px 15px;
             overscroll-behavior : contain;
             .user, .bot {
@@ -71,7 +72,6 @@
         height : 600px;
         max-width : 98%;
         max-height : 98%;
-        border-left : 2px var(--surface-50) solid;
     }
 }
 

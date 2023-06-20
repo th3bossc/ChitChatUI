@@ -1,5 +1,5 @@
 <div class="container">
-    <div [class]="'chat-window ' + botType">
+    <div class="chat-window animate__animated animate__fadeInLeft">
         <div #messsageWindow class="messages">
             <div *ngFor="let msg of messages" [class]="msg.type">
                 {{msg.content}}
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="bot-info" *ngIf="screenWidth >= 1400">
+    <div class="bot-info animate__animated animate__fadeInRight" *ngIf="screenWidth >= 1400">
         <p-scrollPanel [style]="{width : '550px', height : '600px', 'max-width' : '98%', 'max-height' : '98%'}" >
             <app-bot-info [botType]="botType"></app-bot-info>
         </p-scrollPanel>
@@ -31,8 +31,8 @@
 <div class="footer">
     <hr>
     <div class="links">
-        <p-button label="Exit conversation" styleClass="p-button-rounded p-button-help" (onClick)="navigateBack()"></p-button>
-        <p-button label="LogOut" styleClass="p-button-rounded p-button-danger" (onClick)="logout()"></p-button>
+        <p-button label="Exit conversation" styleClass="p-button-rounded p-button-help animate__animated animate__fadeInLeft" (onClick)="navigateBack()"></p-button>
+        <p-button label="LogOut" styleClass="p-button-rounded p-button-danger animate__animated animate__fadeInRight" (onClick)="logout()"></p-button>
     </div>
 </div>
 

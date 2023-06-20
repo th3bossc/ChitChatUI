@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
             this.subHeading += words[step++];
           timer();
         }
-      }, 50);
+      }, 25);
     }
     timer();
   }
