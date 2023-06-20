@@ -1,15 +1,14 @@
 <div class="container">
     <div [class]="'chat-window ' + botType">
-        <div #window class="messages">
+        <div #messsageWindow class="messages">
             <div *ngFor="let msg of messages" [class]="msg.type">
                 {{msg.content}}
             </div>
             <div class="dots" [hidden]="!messageSent">
                 <span *ngFor="let i of [1, 2, 3]" class="dot" style="--delay : {{i}}"> <i class="pi pi-circle-fill"></i></span>
             </div>
-
+            
         </div>
-
         <div class="input-text">
             <form [formGroup]="userInputForm" (ngSubmit)="onSent()">
                 <div class="p-inputgroup">
@@ -19,6 +18,24 @@
             </form>
         </div>
     </div>
-    <p-button label="Exit conversation" styleClass="p-button-rounded p-button-danger" (onClick)="navigateBack()"></p-button>
-    
+
+    <div class="bot-info" *ngIf="screenWidth >= 1400">
+        <p-scrollPanel [style]="{width : '550px', height : '600px', 'max-width' : '98%', 'max-height' : '98%'}" >
+            <app-bot-info [botType]="botType"></app-bot-info>
+        </p-scrollPanel>
+    </div>
+    <div class="bot-info" *ngIf="screenWidth < 1399">
+        <p-button label="Model Information" styleClass="p-button-text p-button-info" (onClick)="onShow()"></p-button>
+    </div>
 </div>
+<div class="footer">
+    <hr>
+    <div class="links">
+        <p-button label="Exit conversation" styleClass="p-button-rounded p-button-help" (onClick)="navigateBack()"></p-button>
+        <p-button label="LogOut" styleClass="p-button-rounded p-button-danger" (onClick)="logout()"></p-button>
+    </div>
+</div>
+
+<p-dialog header="Long Content" [(visible)]="showDialog" [style]="{ width: '80%', height: '80%' }">
+    <app-bot-info [botType]="botType"></app-bot-info>
+</p-dialog>

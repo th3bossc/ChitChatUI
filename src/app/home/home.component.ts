@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { Router, RouterOutlet } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   constructor(private router : Router) {}
   visible = false;
   onLogin() {
@@ -18,4 +18,9 @@ export class HomeComponent {
     this.router.navigate(['register'])
   }
 
+  ngOnInit() {
+    let loggedIn = localStorage.getItem('user_id')
+    if (loggedIn)
+      this.router.navigate(['info'], {queryParams : {user_id : loggedIn}});
+  }
 }

@@ -11,9 +11,8 @@ import { PasswordModule } from 'primeng/password';
 import { RippleModule } from 'primeng/ripple';
 import { DialogModule } from 'primeng/dialog';
 import { MessagesModule } from 'primeng/messages';
-import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
-import { CardModule } from 'primeng/card';
 import { PanelModule } from 'primeng/panel'
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +26,7 @@ import { AuthService } from './Services/auth.service';
 import { ConvoService } from './Services/convo.service';
 import { AutoFocusModule } from 'primeng/autofocus';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -55,10 +55,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     RippleModule,
     DialogModule,
     MessagesModule,
-    DynamicDialogModule,
-    CardModule,
     PanelModule,
-    AutoFocusModule 
+    AutoFocusModule,
+    ScrollPanelModule
   ],
   providers: [AuthService, ConvoService, DialogService],
   bootstrap: [AppComponent]

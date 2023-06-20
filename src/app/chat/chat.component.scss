@@ -1,17 +1,33 @@
 .container {
     display : flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    // align-items: center;
     justify-content: center;
+    flex-wrap : wrap;
     gap : 5px;
-
     .chat-window {
-        &.gpt {
-            height : 550px;
-            width : 400px;
+        height : 600px;
+        width : 630px;
+        // flex-shrink: 0;
+        max-height : 98%;
+        max-width : 98%;
+        background-color: var(--surface-50);
+        // background: url(../../assets/polygon-scatter-haikei.svg);
+        background-size: cover;
+        border-radius : 5px;
+        margin : 20px;
+        padding : 20px;
+        position : relative;
+        .messages {
+            display: flex;
+            flex-direction: column;
+            height : 90%;
+            overflow: auto;
+            padding : 0px 15px;
+            overscroll-behavior : contain;
             .user, .bot {
                 border-radius: 10px;
-                max-width : 70%;
+                max-width : 90%;
                 margin : 5px 0px;
                 padding : 10px;
             }
@@ -24,73 +40,58 @@
             }
             .bot {
                 align-self: flex-start;
-                background-color: var(--gray-800);
+                background-color: var(--gray-600);
                 animation : fadeInLeft 500ms, bubbleLeft 400ms;
             };
 
             .dots {
                 margin : 5px 0px;
                 padding : 5px;
-            }
-        }
-        &.t5 {
-            height : 600px;
-            width : 1200px;
-            .user, .bot {
-                padding : 10px 200px;
-                border-radius: 5px;
-                margin : 5px 0px;
-                animation: fadeInDown 500ms, bubbleDown 400ms;
-            }
-            .user {
-                background-color: var(--gray-400);
-                color : var(--primary-color-text);
-            }
-            .bot {
-                background-color: var(--gray-800);
-            }
-            .dots {
-                margin : 5px 0px;
-                padding : 10px 200px;
-            }
-        }
-
-        &.gpt, &.t5 {
-            max-height : 98%;
-            max-width : 98%;
-            background-color: var(--surface-100);
-            // background: url(../../assets/polygon-scatter-haikei.svg);
-            background-size: cover;
-            border-radius : 5px;
-            margin : 20px;
-            padding : 20px;
-            .messages {
                 display: flex;
-                flex-direction: column;
-                height : 90%;
-                overflow: auto;
-                padding : 0px 15px;
-                
-                .dots {
-                    display: flex;
-                    gap : 3px;
-                    .dot {    
-                        color : var(--text-color);
-                        animation: jump 750ms infinite;
-                        animation-delay : calc(100ms * var(--delay));
-                        i {
-                            font-size : 0.6rem;
-                        }
+                gap : 3px;
+                .dot {    
+                    color : var(--text-color);
+                    animation: jump 750ms infinite;
+                    animation-delay : calc(100ms * var(--delay));
+                    i {
+                        font-size : 0.6rem;
                     }
                 }
-    
             }
         }
-        
+
+        .go-down {
+            position : absolute;
+            bottom : 14%;
+            right : 5%;
+        }
     };
 
+    .bot-info {
+        padding-top : 20px;
+        width : 550px;
+        height : 600px;
+        max-width : 98%;
+        max-height : 98%;
+    }
+}
 
+.footer {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap : 10px;
+    hr {
+        width : 250px;
+    }
 
+    .links {
+        display : flex;
+        flex-direction: row;
+        justify-content: center;
+        gap : 10px;
+    }
 
 }
 

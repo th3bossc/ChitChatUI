@@ -4,8 +4,8 @@ export interface AuthStatus {
 };
 
 export interface AuthData {
-    username ?: string;
-    email : string;
+    username : string;
+    email ?: string;
     password : string;
 };
 

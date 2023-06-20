@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      email : new FormControl(null),
+      username : new FormControl(null),
       password : new FormControl(null)
-    })
+    });
     this.activatedRouter.queryParams.subscribe((data) => {
       if (data['registered'] === "true")
         this.messages = [{ severity: 'success', summary: 'Hurray!', detail: 'Account created successfully. Please LogIn' }];
@@ -30,11 +30,13 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.buttonLoading = true;
-    this.authService.login({email : this.loginForm.value['email'], password : this.loginForm.value['password']}).subscribe((data) => {
+    this.authService.login({username : this.loginForm.value['username'], password : this.loginForm.value['password']}).subscribe((data) => {
       this.loginStatus = data;
       this.buttonLoading = false;
-      if (this.loginStatus.user_id !== null)
+      if (this.loginStatus.user_id !== null) {
+        localStorage.setItem('user_id', this.loginStatus['user_id'])
         this.router.navigate(['info'], {queryParams : {user_id : this.loginStatus['user_id']}});
+      }
       else
         this.messages = [{ severity: 'error', summary: 'Uh Oh!', detail: this.loginStatus.status }];
       

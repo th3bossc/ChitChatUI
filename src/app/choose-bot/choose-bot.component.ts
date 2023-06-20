@@ -7,10 +7,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './choose-bot.component.html',
   styleUrls: ['./choose-bot.component.scss']
 })
-export class ChooseBotComponent implements OnInit, OnDestroy {
-  ref : DynamicDialogRef;
+export class ChooseBotComponent implements OnInit {
+  // ref : DynamicDialogRef;
   user_id : string;
-  constructor(private dialogService : DialogService, private activatedRoute : ActivatedRoute, private router : Router) {}
+  constructor(private activatedRoute : ActivatedRoute, private router : Router) {}
 
   ngOnInit(): void {
     this.activatedRoute.queryParams.subscribe((queryParam) => {
@@ -18,38 +18,41 @@ export class ChooseBotComponent implements OnInit, OnDestroy {
     })
   }
 
-  ngOnDestroy(): void {
-    if (this.ref)
-      this.ref.close();
-  }
+  // ngOnDestroy(): void {
+  //   if (this.ref)
+  //     this.ref.close();
+  // }
 
   dumbBotInfo() {
-    this.ref = this.dialogService.open(
-      BotInfoComponent,
-      {
-        data : {
-          bot : 'gpt',
-          user_id : this.user_id
-        },
-        header : 'Conversational Bot (GPT-2)',
-      }
-    );
+    // this.ref = this.dialogService.open(
+    //   BotInfoComponent,
+    //   {
+    //     data : {
+    //       bot : 'gpt',
+    //       user_id : this.user_id
+    //     },
+    //     header : 'Conversational Bot (GPT-2)',
+    //   }
+    // );
+    this.router.navigate(['chat', this.user_id], {queryParams : {botType : 'gpt'}});
   }
 
   smartBotInfo() {
-    this.ref = this.dialogService.open(
-      BotInfoComponent,
-      {
-        data : {
-          bot : 't5',
-          user_id : this.user_id
-        },
-        header : 'Multi-task Bot (Flan T5)'
-      }
-    );
+    // this.ref = this.dialogService.open(
+    //   BotInfoComponent,
+    //   {
+    //     data : {
+    //       bot : 't5',
+    //       user_id : this.user_id
+    //     },
+    //     header : 'Multi-task Bot (Flan T5)'
+    //   }
+    // );
+    this.router.navigate(['chat', this.user_id], {queryParams : {botType : 't5'}});
   }
 
   logout() {
+    localStorage.clear()
     this.router.navigate(['']);
   }
 }

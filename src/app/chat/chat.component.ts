@@ -1,9 +1,10 @@
-import { Component, ElementRef, ViewChild, AfterViewChecked, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewChecked, OnInit, HostListener } from '@angular/core';
 import { FormGroup, FormControl,Validators } from '@angular/forms';
 import { AuthService } from '../Services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConvoService } from '../Services/convo.service';
-
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { BotInfoComponent } from '../bot-info/bot-info.component';
 export interface message {
   type : 'user' | 'bot',
   content : string
@@ -22,21 +23,30 @@ export class ChatComponent implements AfterViewChecked, OnInit {
   messageSent : boolean;
   user_id : string = null;
   botType : string;
-  @ViewChild('window') pageBottom : ElementRef;
+  @ViewChild('messsageWindow') pageBottom : ElementRef;
+  screenWidth : number;
+  showDialog : boolean;
 
-  constructor(private activatedRoute : ActivatedRoute, private chatService : ConvoService, private router : Router) {}
+  constructor(private activatedRoute : ActivatedRoute, 
+    private chatService : ConvoService, 
+    private router : Router,
+    private dialogService : DialogService
+  ) {}
 
 
   scrollDown() {
-    this.pageBottom.nativeElement.scrollTop = this.pageBottom.nativeElement.scrollHeight;
+    this.pageBottom.nativeElement.scrollTo(0, this.pageBottom.nativeElement.scrollHeight);
   }
 
 
   ngAfterViewChecked(): void {
+    console.log(this.pageBottom.nativeElement.scrollHeight);
     this.scrollDown();
   }
 
   ngOnInit(): void {
+    this.screenWidth = window.innerWidth; 
+    this.showDialog = false;
     this.activatedRoute.params.subscribe((param) => {
       this.user_id = param['id'];
     });
@@ -71,5 +81,20 @@ export class ChatComponent implements AfterViewChecked, OnInit {
     this.router.navigate(['info'], {queryParams : {user_id : this.user_id}})
   }
 
+  logout() {
+    localStorage.removeItem('user_id');
+    this.router.navigate(['']);
+  }
 
+  @HostListener('window:resize', ['$event'])  
+  onWindowResize() {
+    this.screenWidth = window.innerWidth;
+    if (this.screenWidth >= 1400)
+    this.showDialog = false;
+  }
+
+  onShow() {
+
+    this.showDialog = !this.showDialog;
+  }
 }
